@@ -12,25 +12,25 @@ namespace Task05
             List<int> toDelete = new List<int>(); 
             List<int> toFind = new List<int>();
             
-            for (var i = 0; i < 100; i++)
+            for (var i = 0; i < 10000; i++)
             {
                 var rng = new Random();
                 toAdd.Add(rng.Next(0, 100));
             }
             
-            for (var i = 0; i < 50; i++)
+            for (var i = 0; i < 5000; i++)
             {
                 var rng = new Random();
                 toDelete.Add(rng.Next(0, 100));
             }
             
-            for (var i = 0; i < 100; i++)
+            for (var i = 0; i < 10000; i++)
             {
                 var rng = new Random();
                 toFind.Add(rng.Next(0, 200));
             }
             
-            var tree = new CoarseGrainedBST();
+            var tree = new FineGrainedBST();
             var tasks = new List<Task>();
             foreach (var value in toAdd)
             {
@@ -48,9 +48,9 @@ namespace Task05
             }
 
             Task.WaitAll(tasks.ToArray());
-            tree.print();
-            Console.WriteLine("");
-            var tree1 = new FineGrainedBST();
+            //tree.print();
+            //Console.WriteLine("");
+            var tree1 = new CoarseGrainedBST();
             tasks = new List<Task>();
             foreach (var value in toAdd)
             {
@@ -68,7 +68,7 @@ namespace Task05
             }
 
             Task.WaitAll(tasks.ToArray());
-            tree1.print();
+            //tree1.print();
         }
     }
 }
